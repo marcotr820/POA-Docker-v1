@@ -8,12 +8,9 @@ up:
 	docker-compose up -d --remove-orphans
 
 composer:
-	docker exec test-app bash -c "composer install --ignore-platform-req=ext-zip"
+	docker exec poa-app bash -c "composer install --ignore-platform-req=ext-zip"
 
 vaciar-database:
-	docker exec test-app bash -c "php artisan migrate:reset"
-	docker exec test-app bash -c "php artisan migrate"
-	docker exec test-app bash -c "php artisan db:seed"
-
-reset:
-	docker exec test-app bash -c "php artisan migrate:reset"
+	docker exec poa-app bash -c "php artisan migrate:reset"
+	docker exec poa-app bash -c "php artisan migrate"
+	docker exec poa-app bash -c "php artisan db:seed"
